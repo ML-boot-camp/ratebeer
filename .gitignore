@@ -1,2 +1,4 @@
 *.json
 *.json.gz
+.DS_Store
+__pycache__/
