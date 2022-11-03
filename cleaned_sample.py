@@ -15,12 +15,13 @@ def main():
     """
 
     data_dir = "data/"
-    raw_filename = "ratebeer.json"    
+    raw_filename = "ratebeer.json" 
+    N_rows = 200000 
 
     # Load the data and select a sample
     df_raw = (
         pd.DataFrame.from_records(parse(data_dir+raw_filename))
-        .sample(n=200000, random_state=42)
+        .sample(n=N_rows, random_state=42)
     )
 
     # Define column types
@@ -53,7 +54,6 @@ def main():
     # Save the cleaned sample of data
     clean_filename = "ratebeer_sample_clean.parquet"
     df_clean.to_parquet(data_dir + clean_filename)
-
 
 
 if __name__ == "__main__":
