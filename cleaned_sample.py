@@ -45,10 +45,9 @@ def main():
     # Rename columns
     rename_dict = {
         "beer_name": "beer",
-        "beer_beerId": "beer_ID",
-        "beer_brewerId": "brewery_ID",
+        "beer_brewerId": "brewery",
         "beer_ABV": "alcohol",
-        "beer_style": "style",
+        "beer_style": "type",
         "review_appearance": "rating_appearance",
         "review_aroma": "rating_aroma",
         "review_palate": "rating_palate",
@@ -66,6 +65,7 @@ def main():
         .pipe(clean_integer_features, integer_features)
         .pipe(clean_float_features, float_features)
         .pipe(clean_categorical_features, categorical_features)
+        .drop("beer_beerId", axis=1)
         .rename(columns=rename_dict)
     )
 
