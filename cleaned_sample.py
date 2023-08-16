@@ -53,7 +53,7 @@ def main():
         "review_palate": "rating_palate",
         "review_taste": "rating_taste",
         "review_overall": "rating",
-        "review_time": "time",
+        "review_time": "timestamp",
         "review_profileName": "user",
         "review_text": "text",
     }
