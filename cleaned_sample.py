@@ -42,6 +42,23 @@ def main():
         "beer_style",
     ]
 
+    # Rename columns
+    rename_dict = {
+        "beer_name": "beer",
+        "beer_beerId": "beer_ID",
+        "beer_brewerId": "brewery_ID",
+        "beer_ABV": "alcohol",
+        "beer_style": "style",
+        "review_appearance": "rating_appearance",
+        "review_aroma": "rating_aroma",
+        "review_palate": "rating_palate",
+        "review_taste": "rating_taste",
+        "review_overall": "rating",
+        "review_time": "time",
+        "review_profileName": "user",
+        "review_text": "text",
+    }
+
     # Apply cleaning steps to the data
     df_clean = (
         (df_raw)
@@ -49,6 +66,7 @@ def main():
         .pipe(clean_integer_features, integer_features)
         .pipe(clean_float_features, float_features)
         .pipe(clean_categorical_features, categorical_features)
+        .rename(columns=rename_dict)
     )
 
     # Save the cleaned sample of data
