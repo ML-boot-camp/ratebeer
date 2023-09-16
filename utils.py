@@ -8,8 +8,8 @@ def parse(path):
 
 
 def clean_column_names(df):
-  df.columns = df.columns.str.replace("/", "_")
-  return df
+    df.columns = df.columns.str.replace("/", "_")
+    return df
 
 
 def clean_integer_features(df, columns):
